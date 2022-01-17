@@ -9,24 +9,20 @@
     <meta charset="utf-8" />
     <link href="http://fonts.cdnfonts.com/css/avenir-next-lt-pro" rel="Stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="Stylesheet/Stylesheet.css" />
+    <link rel="stylesheet" href="../Stylesheet/Stylesheet.css?v=<?php echo time(); ?>">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Kalender</title>
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <link
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/><link
             href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
-
-
-
+<head/>
 <!-- Nav-->
 <nav>
-    <div class="index.php"><a href="">Uitloggen</a></div>
+    <div>
+        <p><a href="theread.php">Reserveringen lijst</a></p>
+    </div>
 </nav>
 <!-- Nav ends-->
 
@@ -37,11 +33,11 @@
 <h3>Trainingen</h3>
 <ul>
     <h4>
-    <li><a href="pages/create.php">Systeemtraining</a></li>
-    <li><a href="pages/Extra/Communicatie-training.php">Communicatietraining</a></li>
-    <li><a href="pages/Extra/Kennisinhoudelijke-trainingen.php">Kennisinhoudelijke trainingen</a></li>
-    <li><a href="pages/Extra/Opfris-trainingen.php">opfris trainingen</a></li>
-    <li><a href="pages/Extra/Coachings.php">Coachings</a></li>
+    <li><a href="create.php">Systeemtraining</a></li>
+    <li><a href="Extra/Communicatie-training.php">Communicatietraining</a></li>
+    <li><a href="Extra/Kennisinhoudelijke-trainingen.php">Kennisinhoudelijke trainingen</a></li>
+    <li><a href="Extra/Opfris-trainingen.php">opfris trainingen</a></li>
+    <li><a href="Extra/Coachings.php">Coachings</a></li>
     <h4>
 </ul>
 </div>
@@ -74,13 +70,15 @@
         </div>
 
 
-    <script src="Form Pages/script.js"></script>
+    <script src="Extra/script.js"></script>
             <!-- Calender end-->
 
+    </div
 
-    </div>
+        <!--This is only accessible page when you're logged in-->
 
-    <footer></footer>
+
+    <footer><a href="../loginscreen/logoutpage.php">Logout</a></footer>
 
     </div>
 
