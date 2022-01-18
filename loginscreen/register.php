@@ -31,7 +31,7 @@ if(isset($_POST['submit'])) {
         or die('Db Error: '.mysqli_error($db).' with query: '.$query);
 
         if ($result) {
-            header('Location: login.php');
+            header('Location: index.php');
             exit;
         }
     }
