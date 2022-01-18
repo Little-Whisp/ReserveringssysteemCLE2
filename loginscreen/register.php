@@ -8,17 +8,18 @@ if(isset($_POST['submit'])) {
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
 
+
+    //if you didn't fill in your email or password you'll see errors.
     $errors = [];
     if($email == '') {
-        $errors['email'] = 'Voer een gebruikersnaam in';
+        $errors['email'] = 'Fill in Email';
     }
     if($password == '') {
-        $errors['password'] = 'Voer een wachtwoord in';
+        $errors['password'] = 'Fill in password';
     }
 
     if(empty($errors)) {
         $password = password_hash($password, PASSWORD_DEFAULT);
-
         $query = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
 
         $result = mysqli_query($db, $query)

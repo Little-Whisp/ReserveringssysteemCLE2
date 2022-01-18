@@ -16,6 +16,7 @@ if (isset($_POST['submit'])) {
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
 
+    //if you didn't fill in your email or password you'll see errors.
     $errors = [];
     if($email == '') {
         $errors['email'] = 'Fill in your email';
@@ -29,8 +30,14 @@ if (isset($_POST['submit'])) {
         //I want to get information based on the email
         $query = "SELECT * FROM users WHERE email='$email'";
         $result = mysqli_query($db, $query);
+
+        //if the number from the row number result is equal to 1.
         if (mysqli_num_rows($result) == 1) {
+            //the user will be the result that was fetched.
             $user = mysqli_fetch_assoc($result);
+
+            //I use a password verify to check if the password is linked to the user.
+            //When your password has been verified it should log you in.
             if (password_verify($password, $user['password'])) {
                 $login = true;
 
@@ -48,7 +55,7 @@ if (isset($_POST['submit'])) {
             //Error if your login information is incorrect
             $errors['loginFailed'] = 'The combination of the email and password are not known';
         }
-
+        //If you're logged in you will be directed to the secure page
         if ($result) {
             header('Location: secure.php');
             exit;
@@ -85,14 +92,18 @@ if (isset($_POST['submit'])) {
         <div>
             <label for="email">Email</label>
             <input id="email" type="text" name="email" value="<?= $email ?? '' ?>"/>
+            <!-- If 'email' field is not filled in it will show error = 'email can't be empty' -->
             <span class="errors"><?= $errors['email'] ?? '' ?></span>
         </div>
         <div>
             <label for="password">Wachtwoord</label>
             <input id="password" type="password" name="password" />
+            <!-- If 'password' field is not filled in it will show error = 'password can't be empty' -->
             <span class="errors"><?= $errors['password'] ?? '' ?></span>
         </div>
         <div>
+            <!-- If logging in did not work because you did not fill in the correct information, you will get
+             an error that login failed-->
             <p class="errors"><?= $errors['loginFailed'] ?? '' ?></p>
             <input type="submit" name="submit" value="Login"/>
         </div>
