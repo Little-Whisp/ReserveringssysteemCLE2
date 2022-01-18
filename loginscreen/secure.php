@@ -22,13 +22,20 @@ $email = $_SESSION['loggedInUser']['email'];
     <link rel="stylesheet" href="../Stylesheet/Stylesheet.css?v=<?php echo time(); ?>">
     <title>Veilige pagina</title>
 </head>
-<section>
+
 <body>
-<h2>Secure page</h2>
 <!--This is only accessible page when you're logged in-->
-<p>You are logged in!.</p>
-<p>Welkom, <?= $email ?></p>
-<p>
+<h2>Secure page</h2>
+
+
+<ul>
+    <h1>
+        <li> <p>You are logged in! Welkom, <?= $email ?></p></li>
+
+        <h1>
+</ul>
+</p>
+
 <ul>
     <h1>
         <li><a href="logoutpage.php">logout</a></li>
@@ -45,7 +52,5 @@ $email = $_SESSION['loggedInUser']['email'];
         <h1>
 </ul>
 </p>
-
 </body>
-</section>
 </html>

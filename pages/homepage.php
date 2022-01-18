@@ -67,16 +67,12 @@
                 </div>
                 <div class="days"></div>
 
-        </div>
-
 
     <script src="Extra/script.js"></script>
             <!-- Calender end-->
 
-    </div
-
     <footer><a href="../loginscreen/logoutpage.php">Logout</a></footer>
 
-    </div>
+
 
 </html>

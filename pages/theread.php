@@ -21,6 +21,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_close($db);
 
 ?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,13 +32,12 @@ mysqli_close($db);
     <title>Reservations</title>
     <link rel="stylesheet" href="../Stylesheet/Stylesheet.css?v=<?php echo time(); ?>">
 
-
     <nav>
-<div>
-    <p><a href="homepage.php">Back homepage</a></p>
-</div>
-
+        <div>
+            <p><a href="homepage.php">Back to homepage</a></p>
+        </div>
     </nav>
+
 
 </head>
 <body>
