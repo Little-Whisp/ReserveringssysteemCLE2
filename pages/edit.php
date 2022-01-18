@@ -2,29 +2,33 @@
 /** @var mysqli $db */
 
 $formId = $_GET['id'];
-//Check if Post isset, else do nothing
+
+//Explained 'if (isset($_POST['submit'])) {' in the 'create.php'
 if (isset($_POST['submit'])) {
 
     //I use require_once to only make connection with the database when I use the submit button.
     require_once "../includes/database.php";
 
-    //Postback with the data showed to the user, first retrieve data from 'Super global'
+
     $date   = mysqli_escape_string($db, $_POST['date']);
     $time = mysqli_escape_string($db, $_POST['time']);
 
 
-    //I use require_once to only make connection form validation
+    //Explained 'require_once "form-validation.php";' in the 'create.php'
     require_once "form-validation.php";
 
-
+    //If the form is empty you should see errors.
     if (empty($errors)) {
         //Save the record to the database
         $query = "UPDATE form SET date='$date',time='$time' WHERE id='$formId'";
         $result = mysqli_query($db, $query) or die('Error: '.mysqli_error($db). ' with query ' . $query);
 
+        //Explained 'if ($result) {' in the 'create.php'
         if ($result) {
             header('Location: theread.php');
             exit;
+
+            //Explained '} else { $errors' in the 'create.php'
         } else {
             $errors['db'] = 'Something went wrong in your database query: ' . mysqli_error($db);
         }
@@ -49,21 +53,25 @@ if (isset($_POST['submit'])) {
     </header>
 
 <section>
+    <!-- The form -->
 <form action="" method="post" enctype="multipart/form-data">
     <div class="data-field">
         <label for="date">Date</label>
         <input id="date" type="date" name="date" value="<?= isset($date) ? htmlentities($date) : '' ?>"/>
+        <!-- If 'date' field is not filled in it will show error = 'Date can't be empty' -->
         <span class="errors"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
     </div>
     <div class="data-field">
         <label for="time">Time</label>
         <input id="time" type="time" name="time" value="<?= isset($time) ? htmlentities($time) : '' ?>"/>
+        <!-- If 'date' field is not filled in it will show error = 'Date can't be empty' -->
         <span class="errors"><?= isset($errors['time']) ? $errors['time'] : '' ?></span>
     </div>
     <div class="data-submit">
         <input type="submit" name="submit" value="Save"/>
     </div>
 </form>
+    <!-- End the form -->
 <div>
     </section>
         <ul>

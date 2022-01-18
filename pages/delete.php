@@ -4,7 +4,7 @@
 //Require from data to use variable in this file.
 require_once "../includes/database.php";
 
-
+//Explained 'if (isset($_POST['submit'])) {' in the 'create.php'
 if (isset($_POST['submit'])) {
     $formId = mysqli_escape_string($db, $_POST['id']);
     //Get the id from the form.
@@ -12,6 +12,7 @@ if (isset($_POST['submit'])) {
     // Get the form from the database result.
     $result = mysqli_query($db, $query) or die ('Error: ' . $query);
 
+    //This is the information from the form that was fetched.
     $form = mysqli_fetch_assoc($result);
 
     // Remove the form data from the database with the existing formId.
@@ -26,22 +27,25 @@ if (isset($_POST['submit'])) {
     exit;
 
 } else if (isset($_GET['id']) || $_GET['id'] != '') {
-    //Retrieve the GET parameter from the 'Super global (info after ? in url)'
+    //Retrieve the GET parameter from the 'Super global (info after ? in url)'.
     $formId = mysqli_escape_string($db, $_GET['id']);
 
-    //Get the form from the database result
+    //Get the form from the database result.
     $query = "SELECT * FROM form WHERE id = '$formId'";
     $result = mysqli_query($db, $query) or die ('Error: ' . $query);
 
+    //if the number from the row result formId is equal to 1.
     if (mysqli_num_rows($result) == 1) {
+        //the form will be the result that was fetched.
         $form = mysqli_fetch_assoc($result);
     } else {
         // redirect when db returns no result
         header('Location: theread.php');
         exit;
     }
+
+    // Els if the Id was not present in the url OR the form was not submitted.
 } else {
-    // Id was not present in the url OR the form was not submitted
     // redirect to theread.php (reservation list)
     header('Location: theread.php');
     exit;
