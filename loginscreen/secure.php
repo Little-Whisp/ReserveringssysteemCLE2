@@ -11,6 +11,7 @@ if (!isset($_SESSION['loggedInUser'])) {
 //Get email from session
 $email = $_SESSION['loggedInUser']['email'];
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,6 +25,7 @@ $email = $_SESSION['loggedInUser']['email'];
 <section>
 <body>
 <h2>Secure page</h2>
+<!--This is only accessible page when you're logged in-->
 <p>You are logged in!.</p>
 <p>Welkom, <?= $email ?></p>
 <p>

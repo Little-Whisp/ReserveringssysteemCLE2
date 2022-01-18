@@ -1,13 +1,16 @@
 <?php
+
+/** @var mysqli $db */
+
 session_start();
 
+//I want to check if the user is logged in or not
 if(isset($_SESSION['loggedInUser'])) {
     $login = true;
 } else {
     $login = false;
 }
 
-/** @var mysqli $db */
 require_once "../includes/database.php";
 
 
@@ -24,6 +27,7 @@ if (isset($_POST['submit'])) {
     if($password == '') {
         $errors['password'] = 'Fill in your password';
     }
+
 
     if(empty($errors))
     {

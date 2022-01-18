@@ -75,9 +75,6 @@
 
     </div
 
-        <!--This is only accessible page when you're logged in-->
-
-
     <footer><a href="../loginscreen/logoutpage.php">Logout</a></footer>
 
     </div>

@@ -67,7 +67,7 @@ mysqli_close($db);
             <td><a href="edit.php?id=<?= $for['id'] ?>">Edit</a></td>
         </tr>
     <?php } ?>
-    <!--This is the list were the reservations will be saved-->
+    <!--This is where the reservation list ends-->
     </tbody>
 </table>
 </section>

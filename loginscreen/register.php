@@ -1,6 +1,7 @@
 <?php
 
 if(isset($_POST['submit'])) {
+
     require_once "../includes/database.php";
 
     /** @var mysqli $db */
@@ -19,7 +20,11 @@ if(isset($_POST['submit'])) {
     }
 
     if(empty($errors)) {
+        //I want to make a password hash to make secure them for the user.
+        //The password will show as random digest in the database when a user makes a new account.
         $password = password_hash($password, PASSWORD_DEFAULT);
+
+        //When the email and password are filled in these fill be added to the database
         $query = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
 
         $result = mysqli_query($db, $query)
