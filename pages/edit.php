@@ -5,6 +5,7 @@ $formId = $_GET['id'];
 //Check if Post isset, else do nothing
 if (isset($_POST['submit'])) {
 
+    //I use require_once to only make connection with the database when I use the submit button.
     require_once "../includes/database.php";
 
     //Postback with the data showed to the user, first retrieve data from 'Super global'
@@ -12,7 +13,7 @@ if (isset($_POST['submit'])) {
     $time = mysqli_escape_string($db, $_POST['time']);
 
 
-    //Require the form validation
+    //I use require_once to only make connection form validation
     require_once "form-validation.php";
 
 

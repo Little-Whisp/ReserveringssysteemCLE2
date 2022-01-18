@@ -1,43 +1,35 @@
 <?php
 /** @var mysqli $db */
-///** @var mysqli $form */
-///** @var mysqli $formId */
 
-//Require music data & image helpers to use variable in this file
+//Require from data to use variable in this file.
 require_once "../includes/database.php";
-//require_once "includes/image-helpers.php";
+
 
 if (isset($_POST['submit'])) {
-    // DELETE IMAGE
-    // To remove the image we need to query the file name from the db.
-    // Get the record from the database result
     $formId = mysqli_escape_string($db, $_POST['id']);
+    //Get the id from the form.
     $query = "SELECT * FROM form WHERE id = '$formId'";
+    // Get the form from the database result.
     $result = mysqli_query($db, $query) or die ('Error: ' . $query);
 
     $form = mysqli_fetch_assoc($result);
 
-//    if (!empty($form['image'])) {
-//        deleteImageFile($form['image']);
-//    }
-
-    // DELETE DATA
-    // Remove the album data from the database with the existing albumId
+    // Remove the form data from the database with the existing formId.
     $query = "DELETE FROM form WHERE id = '$formId'";
     mysqli_query($db, $query) or die ('Error: ' . mysqli_error($db));
 
-    //Close connection
+    //Close connection.
     mysqli_close($db);
 
-    //Redirect to homepage after deletion & exit script
+    //Redirect to homepage after deleting your reservation.
     header("Location: theread.php");
     exit;
 
 } else if (isset($_GET['id']) || $_GET['id'] != '') {
-    //Retrieve the GET parameter from the 'Super global'
+    //Retrieve the GET parameter from the 'Super global (info after ? in url)'
     $formId = mysqli_escape_string($db, $_GET['id']);
 
-    //Get the record from the database result
+    //Get the form from the database result
     $query = "SELECT * FROM form WHERE id = '$formId'";
     $result = mysqli_query($db, $query) or die ('Error: ' . $query);
 
@@ -49,9 +41,8 @@ if (isset($_POST['submit'])) {
         exit;
     }
 } else {
-    // id was not present in the url OR the form was not submitted
-
-    // redirect to homepage.php
+    // Id was not present in the url OR the form was not submitted
+    // redirect to theread.php (reservation list)
     header('Location: theread.php');
     exit;
 }
@@ -68,22 +59,16 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 <h2>Delete - <?= $form['date'] ?></h2>
-    <section>
-
-            <div class="data-field">
-                <form action="" method="post">
-                    <p>
-                        Are you sure that you want to delete this reservation? "<?= $form['date'] ?>"
-                    </p>
-                    <div
-                    <input type="hidden" name="id" value="<?= $form['id'] ?>"/>
-                    <input type="submit" name="submit" value="Verwijderen"/>
-                    </div>
-
-            </div>
-
-        <div>
-    </section>
+<section>
+    <div class="data-field">
+        <form action="" method="post">
+            <p>
+                Are you sure that you want to delete this reservation? "<?= $form['date'] ?>"
+            </p>
+            <input type="hidden" name="id" value="<?= $form['id'] ?>"/>
+            <input type="submit" name="submit" value="delete"/>
+    </div>
+</section>
 </form>
 </body>
 </html>

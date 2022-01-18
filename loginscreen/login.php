@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
 
 <?php if ($login) { ?>
     <p>You are loggen in!</p>
-    <p><a href="logoutpage.php">Outloggen</a> / <a href="secure.php">To secure page</a></p>
+    <p><a href="logoutpage.php">Log out</a> / <a href="secure.php">To secure page</a></p>
 
 <?php } else { ?>
     <form action="" method="post">

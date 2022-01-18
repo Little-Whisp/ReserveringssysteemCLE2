@@ -1,13 +1,17 @@
 <?php
-//Require reservation data to use variable in this file
+
 /** @var $db */
+
+//Require reservation data to use variable in this file.
 require_once "..//includes/database.php";
 
-//Get the result set from the database with a SQL query
+//Get the result set from the database with a SQL query.
 $query = "SELECT * FROM form";
+
+//Shows the result from what the query selected from the Form.
 $result = mysqli_query($db, $query);
 
-//Loop through the result to create a custom array
+//Loop through the result to create a custom array.
 $form = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $form[] = $row;
@@ -36,19 +40,11 @@ mysqli_close($db);
 
 </head>
 <body>
+<section>
 <header>
     <h1>Reservations list</h1>
 </header>
 
-<section>
-
-    <ul>
-        <h4>
-            <li>  <a href="create.php">Make new reservation</a>
-
-            <h4>
-    </ul>
-    </div>
 
 <table>
     <thead>
@@ -71,11 +67,11 @@ mysqli_close($db);
             <td><a href="edit.php?id=<?= $for['id'] ?>">Edit</a></td>
         </tr>
     <?php } ?>
+    <!--This is the list were the reservations will be saved-->
     </tbody>
 </table>
 </section>
-
 </body>
 </html>
-<footer>
-</footer>
+
+<footer><a href="create.php">Make new reservation</a></footer>
