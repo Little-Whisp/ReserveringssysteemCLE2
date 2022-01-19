@@ -2,8 +2,10 @@
 
 /** @var mysqli $db */
 
+
 if(isset($_POST['submit'])) {
 
+    //I use require_once to only make connection with the database when I use the submit button.
     require_once "../includes/database.php";
 
 

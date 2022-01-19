@@ -2,6 +2,11 @@
 /** @var mysqli $db */
 
 //I want to check if the user is logged in or not
+//May I even visit this page?
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: index.php");
+    exit;
+}
 
 
 //If I click on submit I want to

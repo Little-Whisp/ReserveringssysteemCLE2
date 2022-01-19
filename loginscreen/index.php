@@ -11,11 +11,14 @@ if(isset($_SESSION['loggedInUser'])) {
     $login = false;
 }
 
-require_once "../includes/database.php";
-
 
 /*These are for the SQL Injection*/
 if (isset($_POST['submit'])) {
+
+    //I use require_once to only make connection with the database when I use the submit button.
+    require_once "../includes/database.php";
+
+    /*These are for the SQL Injection*/
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
 
