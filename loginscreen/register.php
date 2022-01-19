@@ -1,11 +1,13 @@
 <?php
 
+/** @var mysqli $db */
+
 if(isset($_POST['submit'])) {
 
     require_once "../includes/database.php";
 
-    /** @var mysqli $db */
 
+    /*These are for the SQL Injection*/
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
 

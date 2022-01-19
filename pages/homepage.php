@@ -1,5 +1,11 @@
 <!--# ReserveringssysteemCLE2-->
 <?php
+//I want to check if the user is logged in or not
+if(isset($_SESSION['loggedInUser'])) {
+    $login = true;
+} else {
+    $login = false;
+}
 ?>
 
 <doctype html>

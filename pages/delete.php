@@ -1,6 +1,14 @@
 <?php
 /** @var mysqli $db */
 
+
+//I want to check if the user is logged in or not
+if(isset($_SESSION['loggedInUser'])) {
+    $login = true;
+} else {
+    $login = false;
+}
+
 //Require from data to use variable in this file.
 require_once "../includes/database.php";
 

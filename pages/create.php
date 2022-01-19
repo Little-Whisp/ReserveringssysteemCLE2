@@ -1,6 +1,9 @@
 <?php
 /** @var mysqli $db */
 
+//I want to check if the user is logged in or not
+
+
 //If I click on submit I want to
 // check if the form is submitted.
 if (isset($_POST["submit"])) {
@@ -8,6 +11,7 @@ if (isset($_POST["submit"])) {
     //I use require_once to only make connection with the database when I use the submit button.
     require_once "../includes/database.php";
 
+    /*These are for the SQL Injection*/
     $date = mysqli_escape_string($db, $_POST['date']);
     $time = mysqli_escape_string($db, $_POST['time']);
 

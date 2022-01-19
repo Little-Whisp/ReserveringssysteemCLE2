@@ -1,6 +1,13 @@
 <?php
 /** @var mysqli $db */
 
+//I want to check if the user is logged in or not
+if(isset($_SESSION['loggedInUser'])) {
+    $login = true;
+} else {
+    $login = false;
+}
+
 $formId = $_GET['id'];
 
 //Explained 'if (isset($_POST['submit'])) {' in the 'create.php'
@@ -32,6 +39,7 @@ if (isset($_POST['submit'])) {
         } else {
             $errors['db'] = 'Something went wrong in your database query: ' . mysqli_error($db);
         }
+
 
         //Close connection
         mysqli_close($db);

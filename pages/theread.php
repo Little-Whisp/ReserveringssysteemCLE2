@@ -3,7 +3,7 @@
 /** @var $db */
 
 //Require reservation data to use variable in this file.
-require_once "..//includes/database.php";
+require_once "../includes/database.php";
 
 //Get the result set from the database with a SQL query.
 $query = "SELECT * FROM form";
@@ -15,6 +15,13 @@ $result = mysqli_query($db, $query);
 $form = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $form[] = $row;
+}
+
+//I want to check if the user is logged in or not
+if(isset($_SESSION['loggedInUser'])) {
+    $login = true;
+} else {
+    $login = false;
 }
 
 //Close connection
