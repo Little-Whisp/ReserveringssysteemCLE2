@@ -1,17 +1,14 @@
 <!--# ReserveringssysteemCLE2-->
 <?php
 
-////May I even visit this page?
-//if (!isset($_SESSION['loggedInUser'])) {
-//    header("Location: index.php");
-//    exit;
-//}
-
 //I want to check if the user is logged in or not
+//And prevent deeplinks.
 if(isset($_SESSION['loggedInUser'])) {
     $login = true;
 } else {
     $login = false;
+    header("Location: index.php");
+    exit;
 }
 ?>
 

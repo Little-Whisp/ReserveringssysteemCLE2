@@ -1,11 +1,15 @@
 <?php
 /** @var mysqli $db */
 
-//I want to check if the user is logged in or not
+
+//I use this code to prefent deeplinks,
+//and I want to check if the user is logged in or not.
 if(isset($_SESSION['loggedInUser'])) {
     $login = true;
 } else {
     $login = false;
+        header("Location: index.php");
+    exit;
 }
 
 $formId = $_GET['id'];
@@ -16,7 +20,7 @@ if (isset($_POST['submit'])) {
     //I use require_once to only make connection with the database when I use the submit button.
     require_once "../includes/database.php";
 
-
+    //These are for the SQL Injections//
     $date   = mysqli_escape_string($db, $_POST['date']);
     $time = mysqli_escape_string($db, $_POST['time']);
 

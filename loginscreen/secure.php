@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//May I even visit this page?
+//I use this code to prevent deeplinks.
 if (!isset($_SESSION['loggedInUser'])) {
     header("Location: index.php");
     exit;

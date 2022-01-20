@@ -9,7 +9,7 @@ if(isset($_POST['submit'])) {
     require_once "../includes/database.php";
 
 
-    /*These are for the SQL Injection*/
+    //These are for the SQL Injections//
     $email = mysqli_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
 

@@ -1,6 +1,11 @@
 <?php
 /** @var mysqli $db */
 
+//I use this code to prefent deeplinks.
+if (!isset($_SESSION['loggedInUser'])) {
+    header("Location: index.php");
+    exit;
+}
 
 //Require from data to use variable in this file.
 require_once "../includes/database.php";
