@@ -1,5 +1,4 @@
-Programmeren 2 onderdeel van CMTTHE01-2
-Hier vind je alle informatie, lesvoorbeelden, les- en oefenopdrachten voor programmeren 2. Binnen deze cursus leer je CRUD functionaliteit bouwen in een website met behulp van PHP. Onderwerpen die aan bod zullen komen zijn
+Programmeren 2 onderdeel van CMTTHE01-2 (What did we learn?)
 
 What is a webserver, interpreter, request and response
 Basic syntax PHP (variables, operators, datatypes, loops, functions)
